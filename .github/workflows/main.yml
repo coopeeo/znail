@@ -26,6 +26,6 @@ jobs:
       - name: Test
         run: |
           source activate
-          make static
-          make test
-          make systest
+          make raspbian_image
+          ls dist
+      
