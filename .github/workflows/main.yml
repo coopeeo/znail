@@ -24,7 +24,7 @@ jobs:
       - name: Test
         run: |
           sudo apt update
-          sudo apt install -y coreutils quilt parted qemu-user-static debootstrap zerofree zip dosfstools bsdtar libcap2-bin grep rsync xz-utils file git curl
+          sudo apt install -y coreutils quilt parted qemu-user-static debootstrap zerofree zip dosfstools libcap2-bin grep xz-utils file
           source activate
           make raspbian_image
           ls dist
