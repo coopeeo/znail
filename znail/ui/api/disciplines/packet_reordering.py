@@ -26,7 +26,7 @@ packet_reordering_model = api.model(
 class PacketReorderingResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @api.response(200, "Success", packet_reordering_model)
     def get(self):
@@ -47,7 +47,7 @@ class PacketReorderingResource(flask_restplus.Resource):
 class ClearPacketReorderingResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @json_request_handler()
     def post(self, data):

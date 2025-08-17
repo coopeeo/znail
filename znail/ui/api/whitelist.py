@@ -35,7 +35,7 @@ white_list_model = [
 class WhiteListResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._tc = Tc.adapter("eth1")
+        self._tc = Tc.adapter("eth0")
 
     @api.response(200, "Success", white_list_model)
     def get(self):
@@ -51,7 +51,7 @@ class WhiteListResource(flask_restplus.Resource):
 class ClearWhiteListResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._tc = Tc.adapter("eth1")
+        self._tc = Tc.adapter("eth0")
 
     @json_request_handler()
     def post(self, data):

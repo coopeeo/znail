@@ -19,7 +19,7 @@ packet_corruption_model = api.model("PacketCorruption", {"percent": flask_restpl
 class PacketCorruptionResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @api.response(200, "Success", packet_corruption_model)
     def get(self):
@@ -37,7 +37,7 @@ class PacketCorruptionResource(flask_restplus.Resource):
 class ClearPacketCorruptionResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @json_request_handler()
     def post(self, data):

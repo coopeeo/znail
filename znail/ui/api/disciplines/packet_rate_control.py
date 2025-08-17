@@ -28,7 +28,7 @@ packet_rate_control_model = api.model(
 class PacketRateControlResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @api.response(200, "Success", packet_rate_control_model)
     def get(self):
@@ -50,7 +50,7 @@ class PacketRateControlResource(flask_restplus.Resource):
 class ClearPacketRateControlResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @json_request_handler()
     def post(self, data):

@@ -19,7 +19,7 @@ packet_loss_model = api.model("PacketLoss", {"percent": flask_restplus.fields.Fl
 class PacketLossResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @api.response(200, "Success", packet_loss_model)
     def get(self):
@@ -37,7 +37,7 @@ class PacketLossResource(flask_restplus.Resource):
 class ClearPacketLossResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @json_request_handler()
     def post(self, data):

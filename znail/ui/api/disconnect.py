@@ -34,7 +34,7 @@ disconnect_model = api.model(
 class DisconnectResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @api.response(200, "Success", disconnect_model)
     def get(self, *args, **kwargs):
@@ -46,7 +46,7 @@ class DisconnectResource(flask_restplus.Resource):
             _usb.disable_all_usb_ports()
         else:
             _usb.enable_all_usb_ports()
-            while not self._poll_network_interface("eth1"):
+            while not self._poll_network_interface("eth0"):
                 time.sleep(0.1)
             self.tc.apply(self.tc.disciplines)
 

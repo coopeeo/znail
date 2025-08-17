@@ -19,7 +19,7 @@ def _prepare_system_for_use():
     prepare_iptables()
     restore_hosts_file_to_default()
     Usb().enable_all_usb_ports()
-    Tc.adapter("eth1").clear()
+    Tc.adapter("eth0").clear()
     logger.info("Done preparing system for use")
 
 

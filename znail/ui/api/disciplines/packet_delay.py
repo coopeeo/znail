@@ -19,7 +19,7 @@ packet_delay_model = api.model("PacketDelay", {"milliseconds": flask_restplus.fi
 class PacketDelayResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @api.response(200, "Success", packet_delay_model)
     def get(self):
@@ -37,7 +37,7 @@ class PacketDelayResource(flask_restplus.Resource):
 class ClearPacketDelayResource(flask_restplus.Resource):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tc = Tc.adapter("eth1")
+        self.tc = Tc.adapter("eth0")
 
     @json_request_handler()
     def post(self, data):
