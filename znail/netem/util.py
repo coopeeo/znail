@@ -31,7 +31,7 @@ def prepare_iptables():
     logger.info("Clearing IP tables NAT rules")
     run_in_shell("{iptables} -t nat -F".format(iptables=iptables))
     run_in_shell("{iptables} -t nat -A POSTROUTING -o wlan0 -j MASQUERADE".format(iptables=iptables))
-    run_in_shell("{iptables} -A FORWARD -i wlan0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT.format(iptables=iptables))
+    run_in_shell("{iptables} -A FORWARD -i wlan0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT".format(iptables=iptables))
     run_in_shell("{iptables} -A FORWARD -i eth0 -o wlan0 -j ACCEPT".format(iptables=iptables))
 
 
